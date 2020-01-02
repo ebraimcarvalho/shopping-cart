@@ -35,7 +35,7 @@ class App extends React.Component {
 
     return (
       <div>
-        <div className="wrap">
+        <div>
           {productItems}
           <div>
             <span>Coupon A</span>
@@ -45,7 +45,7 @@ class App extends React.Component {
 
           <hr/>         
           
-          <ValuesInfo />
+          <ValuesInfo subtotal={this.subtotal}/>
           
           <hr/>
 
