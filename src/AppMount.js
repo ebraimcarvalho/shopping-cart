@@ -37,9 +37,11 @@ class App extends React.Component {
       <div>
         <div>
           {productItems}
-          <div>
-            <span>Coupon A</span>
-            <button>Remove</button>
+          <div className="coupon-info">
+            <div>
+              <span>Coupon A</span>
+              <button>Remove</button>
+            </div>
             <span>$ -57 (30%)</span>
           </div>
 

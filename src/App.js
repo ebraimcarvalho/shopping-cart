@@ -17,12 +17,17 @@ class App extends React.Component {
       total: 0,
     }
 
+    this.valorItem = this.valorItem.bind(this)
     this.subtotal = this.subtotal.bind(this)
   }
 
+  valorItem(id) {
+    
+  }
+
   subtotal() {
-    this.setState((state) => {
-      return {subtotal: state.subtotal + 1};
+    this.setState(prevState => {
+      return {subtotal: prevState.subtotal + prevState.products[0].price};
     });
   }
 
@@ -36,25 +41,34 @@ class App extends React.Component {
     return (
       <div>
         <div className="wrap">
-          {productItems}
-          <div>
-            <span>Coupon A</span>
-            <button>Remove</button>
+          <div className="product-wrap">
+            {productItems}
+
+          <div className="coupon-info">
+            <div>
+              <span className="coupon-text">Coupon A</span>
+              <button>Remove</button>
+            </div>
             <span>$ -57 (30%)</span>
           </div>
+        </div>
 
           <hr/>         
           
-          <ValuesInfo />
+          <ValuesInfo 
+            subtotal={this.state.subtotal}
+            shipping={this.state.shipping}
+            discount={this.state.discount}
+            total={this.state.total} />
           
           <hr/>
 
-          <div>
+          <div className="input-coupon">
             <input type="text" placeholder="Coupon code"/>
             <button>Apply</button>
           </div>
         </div>
-        <button>Purchase</button>
+        <button className="purchase">Purchase</button>
       </div>
     )
   }

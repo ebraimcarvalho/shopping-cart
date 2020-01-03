@@ -5,10 +5,10 @@ function ProductItem(props) {
     <div className="product-item">
       <div>
         <span className="product-text">{props.data.product}</span>
-        <input type="number" min="0" onClick={() => props.subtotal}/>
+        <input type="number" min="0" step="1" onChange={() => props.subtotal()}/>
         <span>kg</span>
       </div>
-      <span>$ valor total</span>
+      <span className="product-value">$ {props.data.subtotalItem}</span>
     </div>
   )
 }

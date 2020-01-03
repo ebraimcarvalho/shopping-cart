@@ -5,22 +5,22 @@ function ValuesInfo(props) {
     <div className="values-info">
       <div>
         <span>Subtotal</span>
-        <span>{props.subtotal}</span>
+        <span>$ {props.subtotal}</span>
       </div>
 
       <div>
         <span>Shipping</span>
-        <span>$ 30</span>
+        <span>$ {props.shipping}</span>
       </div>
 
       <div>
         <span>Discount</span>
-        <span>- $ 57</span>
+        <span>- $ {props.discount}</span>
       </div>
 
       <div>
         <span>Total</span>
-        <span>$ 163</span>
+        <span>$ {props.total}</span>
       </div>
     </div>
   )

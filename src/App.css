@@ -1,25 +1,127 @@
+body {
+  display: flex;
+  height: 100vh;
+  width: 100%;
+  align-items: center;
+}
+
 #root {
-  width: 70%;
-  margin: 0 auto;
+  max-width: 400px;
+  height: 60vh;
+  margin: auto;
 }
 
 .wrap {
   background-color: #eee;
   border: 1px solid #777;
+  
+}
+
+.product-wrap {
+  padding: 15px 15px 5px 15px;
+}
+
+.values-info div {
+  padding: 0px 15px 5px 15px;
+}
+
+.product-item, .coupon-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
 }
 
 .product-item {
+  margin-bottom: 10px;
+}
+
+.product-text, .coupon-text {
+  display: inline-block;
+  width: 120px;
+}
+
+.product-value {
+  width: 130px;
+  text-align: right;
+}
+
+input[type=number] {
+  width: 25%;
+  height: 25px;
+  margin-right: 10px;
+  border-radius: 12px;
+  border: 1px solid #777;
+  position: relative;
+  text-align: center;
+  opacity: 1;
+}
+
+input:focus {
+  outline: none;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  opacity: 1;
+  height: 30px;
+  color: rgb(33, 117, 243);
+}
+
+.coupon-info button {
+  background-color: rgb(33, 117, 243);
+  border: 1px solid #777;
+  color: white;
+  font-size: 1rem;
+  width: 90px;
+  outline: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.values-info div {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.product-text {
-  display: inline-block;
-  width: 120px;
+hr {
+  width: 98%;
 }
 
-input[type="number"] {
-  width: 25%;
-  margin-right: 10px;
+.input-coupon {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 15px 15px 15px;
+}
+
+.input-coupon input {
+  width: 70%;
+  height: 40px;
+  padding-left: 10px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  font-size: 1rem;
+}
+
+.input-coupon button {
+  background-color: rgb(33, 117, 243);
+  color: white;
+  border-style: none;
+  width: 70px;
+  height: 40px;
+  border-radius: 7px;
+  cursor: pointer;
+}
+
+.purchase {
+  width: 100%;
+  height: 40px;
+  margin-top: 20px;
+  border-style: none;
+  border-radius: 7px;
+  background-color: rgb(0, 177, 29);
+  color: white;
+  font-size: 1.1rem;
+  cursor: pointer;
 }
