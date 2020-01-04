@@ -16,16 +16,29 @@ class App extends React.Component {
       discount: 0,
       total: 0,
     }
-
     this.valorItem = this.valorItem.bind(this)
+    this.keyup = this.keyup.bind(this)
     this.subtotal = this.subtotal.bind(this)
   }
 
   valorItem(id) {
-    
+    this.setState(prevState => {
+      const updatedProducts = prevState.products.map(product => {
+        product.subtotalItem = product.price * product.qtd
+        return product
+      })
+
+      return {
+        products: updatedProducts
+      }
+    })
   }
 
-  subtotal() {
+  keyup(id) {
+    console.log("I'm working!")
+  }
+
+  subtotal(id) {
     this.setState(prevState => {
       return {subtotal: prevState.subtotal + prevState.products[0].price};
     });
@@ -33,9 +46,8 @@ class App extends React.Component {
 
   render() {
     const productItems = this.state.products.map(item =>
-      <ProductItem key={item.id} data={item} subtotal={this.subtotal}/>)
+      <ProductItem key={item.id} data={item} valorItem={this.valorItem} keyup={this.keyup} subtotal={this.subtotal}/>)
     
-    console.log(productItems)
     console.log(this.state)
 
     return (
