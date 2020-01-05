@@ -1,8 +1,7 @@
 import React from 'react';
 
-import ProductItem from './ProductItem'
 import productsData from './productsData'
-
+import ProductItem from './ProductItem'
 import ValuesInfo from './ValuesInfo'
 import './App.css';
 
@@ -11,33 +10,14 @@ class App extends React.Component {
     super()
     this.state = {
       products: productsData,
-      qty: 0,
+      qty: 1,
       subtotal: 0,
       shipping: 0,
       discount: 0,
       total: 0,
     }
-    // this.valorItem = this.valorItem.bind(this)
-    // this.keyup = this.keyup.bind(this)
     this.subtotal = this.subtotal.bind(this)
   }
-
-  // valorItem(id) {
-  //   this.setState(prevState => {
-  //     const updatedProducts = prevState.products.map(product => {
-  //       product.subtotalItem = product.price * product.qtd
-  //       return product
-  //     })
-
-  //     return {
-  //       products: updatedProducts
-  //     }
-  //   })
-  // }
-
-  // keyup(id) {
-  //   console.log("I'm working!")
-  // }
 
   subtotal(event) {
     this.setState({
@@ -46,20 +26,21 @@ class App extends React.Component {
     })
     this.setState(prevState => {
       const updatedList = prevState.products.map(products => {
-        return (
-          products.subtotalItem = 5
-        )
+        return (products.subtotalItem = products.price * prevState.qty)
       })
       return updatedList
     })
-    console.log(this.state.qty, this.state.subtotal)
   }
 
   render() {
     const productItems = this.state.products.map(item =>
-      <ProductItem key={item.id} data={item} //valorItem={this.valorItem} 
-      //keyup={this.keyup} 
-      subtotal={this.subtotal}/>)
+      <ProductItem 
+        key={item.id} 
+        data={item}
+        qty={this.qty}
+        //valorItem={this.valorItem}
+        subtotal={this.subtotal}
+      />)
     
     console.log(this.state)
 
